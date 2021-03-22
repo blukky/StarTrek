@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Нормативная база{% endblock %}
+
+{% block content %}
+    <div id="header" style="height: 300px; margin-top: 10%">
+        <div align="left" class="ml-5 text-light d-flex"><img src="{% static 'build/images/46909c7.png' %}" class="mr-3"
+                                                              alt=""><h4>Нормативная база Российской Федерации</h4>
+        </div>
+    </div>
+
+    <div align="center">
+        <div class="p-3 mb-5 bg-body rounded text-dark"
+             style="width: 80%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;">
+            <ul class="list-group list-group-flush">
+                <a class="list-group-item" style="border-bottom: 3px solid #C3C3C3" target="_blank"
+                   href="http://www.consultant.ru/document/cons_doc_LAW_18853/">Федеральный закон от 27 мая 1998 г.
+                    № 76-ФЗ «О статусе военнослужащих»
+                </a>
+                <a class="list-group-item" style="border-bottom: 3px solid #C3C3C3" target="_blank"
+                   href="http://www.consultant.ru/document/cons_doc_LAW_116988/">Федеральный закон от 19 июля 2011 г.
+                    № 247-ФЗ «О социальных гарантиях сотрудникам органов внутренних дел Российской Федерации и внесении
+                    изменений в отдельные законодательные акты Российской Федерации»
+                </a>
+                <a class="list-group-item" style="border-bottom: 3px solid #C3C3C3" target="_blank" href="http://www.consultant.ru/document/cons_doc_LAW_140178/">Федеральный закон от 30 декабря 2012
+                    г. № 283-ФЗ «О социальных гарантиях сотрудникам некоторых федеральных органов исполнительной власти
+                    и внесении изменений в отдельные законодательные акты Российской Федерации»
+                </a>
+                <a class="list-group-item" target="_blank" href="http://www.conplus.su/browse/new-federal.php">Постановления Правительства
+                    Российской Федерации и приказы Минстроя России изданные в развитие указанных федеральных законов
+                </a>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
