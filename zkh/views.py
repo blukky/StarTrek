@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from selenium import webdriver
-from bs4 import BeautifulSoup as bs
+# from selenium import webdriver
+# from bs4 import BeautifulSoup as bs
+from .forms import Calc
 # Create your views here.
 
 
@@ -17,3 +18,7 @@ def index(request):
 
 def regul(request):
     return render(request, 'norm_basa.html')
+
+def calculater(request):
+    form = Calc()
+    return  render(request, 'calculater.html', {'form':form})

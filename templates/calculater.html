@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Калькулятор{% endblock %}
+{% block content %}
+    <style type="text/css">
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            /* display: none; <- Crashes Chrome on hover */
+            -webkit-appearance: none;
+            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        }
+    </style>
+    <div id="header" style="height: 300px; margin-top: 10%; margin-left: 10%;">
+        <div align="left" class="ml-5 text-light d-flex"><img src="{% static 'build/images/46909c7.png' %}" class="mr-3"
+                                                              alt="">
+            <h2>Калькулятор материального обеспечения</h2>
+        </div>
+    </div>
+    <form>
+        <div align="center" style="margin-left: 10%; width: 80%">
+            <input type="hidden" name="csrfmiddlewaretoken"
+                   value="gKBitIcUGsIWnylyxhjiw9W65Hp56EryxeFH54xQ5naXHoWaXen9dKfHXuPhMdeB">
+
+            <div class="d-flex" style="width: 80%">
+                <div id="div_id_city" align="left" style="width: 50%" class="form-group mr-4"><label for="id_city" class="requiredField">
+                    МЕСТО СЛУЖБЫ </label> <i class="fa fa-map-marker"></i>
+                    <div class=""><input type="text" name="city" class="form-control textinput textInput form-control"
+                                         placeholder="г. Москва" style="border-radius: 5px;" required="" id="id_city">
+                    </div>
+                </div>
+                <div id="div_id_visluga" align="right" style="text-align: left; width: 50%" class="form-group"><label
+                        for="id_visluga" class=" requiredField">
+                    ВЫСЛУГА ЛЕТ </label> <i class="fa fa-calendar"></i>
+                    <div class=""><input type="number" name="visluga" class="form-control numberinput form-control"
+                                         placeholder="5.6 лет" style="border-radius: 5px;" required="" id="id_visluga">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex" style="width: 80%;">
+                <div id="div_id_shouse" style="width: 50%" align="left" class="form-group mr-4"><label for="id_shouse"
+                                                                                    class=" requiredField">
+                    ПЛОЩАДЬ ЖИЛЬЯ </label> <i class="fa fa-arrows-alt"></i>
+                    <div class=""><input type="number" name="shouse" class="form-control numberinput form-control"
+                                         placeholder="30" style="border-radius: 5px;" required="" id="id_shouse"></div>
+                </div >
+                <div id="div_id_prinadlez" align="right" style="text-align: left; width: 50%" class="form-group"><label
+                        for="id_prinadlez" class=" requiredField">
+                    ОТНОШЕНИЕ К СЛУЖБЕ </label> <i class="fa fa-building-o"></i>
+                    <div class=""><select name="prinadlez" class="select form-select" id="id_prinadlez">
+                        <option value="МВД">МВД</option>
+                        <option value="Военнослужащий">Военнослужащий</option>
+                        <option value="Сотрудник">Сотрудник</option>
+
+                    </select></div>
+                </div>
+            </div>
+            <div class="d-flex" style="width: 80%">
+            <div id="div_id_area" style="width: 100%" class="form-group"><label for="id_area" class=" requiredField">
+                ЖЕЛАЕМЫЙ РЕГИОН ЖИЛЬЯ </label> <i class="fa fa-home"></i>
+                <div class=""><input type="number" name="area" class="form-control numberinput form-control"
+                                     placeholder="Ленинградская обл." style="border-radius: 5px;" required=""
+                                     id="id_area"></div>
+            </div>
+            </div>
+            <div class="d-flex" style="width: 80%">
+                <div id="div_id_family" style="width: 50%" align="left" class="form-group mr-4"><label for="id_family" class=" requiredField">
+                    КОЛИЧЕСТВО ЧЛЕНОВ СЕМЬИ </label> <i class="fa fa-group"></i>
+                    <div class=""><input type="number" name="family" class="form-control numberinput form-control"
+                                         style="border-radius: 5px;" placeholder="2" required="" id="id_family"></div>
+                </div>
+                <div id="div_id_dop_s_house" align="right" style="text-align: left; width: 50%" class="form-group"><label for="id_dop_s_house" class=" requiredField">
+                    ПЛОЩАДЬ ЖИЛЬЯ </label> <i class="fa fa-plus-square-o"></i>
+                    <div class=""><input type="number" name="dop_s_house" class="form-control numberinput form-control"
+                                         placeholder="В соответствии ФЗ №76" style="border-radius: 5px;" required=""
+                                         id="id_dop_s_house"></div>
+                </div>
+            </div>
+            <a class="btn btn-primary mt-3 text-light" style="background: rgb(29, 33, 63); border-color:rgb(21, 24, 45); ">Расчитать</a>
+        </div>
+
+    </form>
+
+{% endblock %}
