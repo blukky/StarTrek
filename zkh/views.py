@@ -1,24 +1,33 @@
 from django.shortcuts import render
+from django.http import JsonResponse
+import requests as r
 # from selenium import webdriver
-# from bs4 import BeautifulSoup as bs
+from bs4 import BeautifulSoup as bs
 from .forms import Calc
 # Create your views here.
 
 
 def index(request):
-    # option = webdriver.ChromeOptions()
-    # option.add_argument('--headerless')
-    # driver = webdriver.Chrome(executable_path='zkh/static/model/chromedriver.exe', options=option)
-    # driver.get("https://yandex.ru/")
-    # main_page = driver.find_element_by_tag_name("html")
-    # page = main_page.get_attribute("innerHTML")
-    # page = bs(page, 'lxml')
-    # print(page.find_all(class_='news__item-content '))
-    return render(request, 'base.html')
+    page = r.get('https://ria.ru/').content
+    page = bs(page, 'lxml')
+    news = list()
+    title = page.find('div', class_='cell cell-list m-title')
+    for i in title.find_all('a', class_='cell-list__item-link color-font-hover-only'):
+        news.append((i.get('title'),i.get('href')))
+    return render(request, 'base.html', {'news':news})
 
 def regul(request):
     return render(request, 'norm_basa.html')
 
 def calculater(request):
-    form = Calc()
-    return  render(request, 'calculater.html', {'form':form})
+    return  render(request, 'calculater.html')
+
+def about(request):
+    return render(request, 'about.html')
+
+
+def alg(request):
+    if request.method == "POST":
+        data = dict()
+        data['price'] = 0
+        return JsonResponse(data)

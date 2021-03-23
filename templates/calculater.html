@@ -33,8 +33,9 @@
                 <div id="div_id_visluga" align="right" style="text-align: left; width: 50%" class="form-group"><label
                         for="id_visluga" class=" requiredField">
                     ВЫСЛУГА ЛЕТ </label> <i class="fa fa-calendar"></i>
-                    <div class=""><input type="number" name="visluga" class="form-control numberinput form-control"
-                                         placeholder="5.6 лет" style="border-radius: 5px;" required="" id="id_visluga">
+                    <div class="d-flex"><input type="number" name="visluga" class="form-control numberinput form-control"
+                                         placeholder="5.6" style="border-radius: 5px;" required="" id="id_visluga">
+{#                        <span class="" style="font-size: 24px">лет</span>#}
                     </div>
                 </div>
             </div>
@@ -42,8 +43,10 @@
                 <div id="div_id_shouse" style="width: 50%" align="left" class="form-group mr-4"><label for="id_shouse"
                                                                                     class=" requiredField">
                     ПЛОЩАДЬ ЖИЛЬЯ </label> <i class="fa fa-arrows-alt"></i>
-                    <div class=""><input type="number" name="shouse" class="form-control numberinput form-control"
-                                         placeholder="30" style="border-radius: 5px;" required="" id="id_shouse"></div>
+                    <div class="d-flex"><input type="number" name="shouse" class="form-control numberinput form-control"
+                                         placeholder="30" style="border-radius: 5px;" required="" id="id_shouse">
+{#                        <span class="" style="font-size: 24px">м<sup>2</sup></span>#}
+                    </div>
                 </div >
                 <div id="div_id_prinadlez" align="right" style="text-align: left; width: 50%" class="form-group"><label
                         for="id_prinadlez" class=" requiredField">
@@ -59,7 +62,7 @@
             <div class="d-flex" style="width: 80%">
             <div id="div_id_area" style="width: 100%" class="form-group"><label for="id_area" class=" requiredField">
                 ЖЕЛАЕМЫЙ РЕГИОН ЖИЛЬЯ </label> <i class="fa fa-home"></i>
-                <div class=""><input type="number" name="area" class="form-control numberinput form-control"
+                <div class=""><input type="text" name="area" class="form-control numberinput form-control"
                                      placeholder="Ленинградская обл." style="border-radius: 5px;" required=""
                                      id="id_area"></div>
             </div>
@@ -71,15 +74,20 @@
                                          style="border-radius: 5px;" placeholder="2" required="" id="id_family"></div>
                 </div>
                 <div id="div_id_dop_s_house" align="right" style="text-align: left; width: 50%" class="form-group"><label for="id_dop_s_house" class=" requiredField">
-                    ПЛОЩАДЬ ЖИЛЬЯ </label> <i class="fa fa-plus-square-o"></i>
+                    ПРАВО НА ДОПОЛНИТЕЛЬНУЮ ПЛОЩАДЬ ЖИЛЬЯ </label> <i class="fa fa-plus-square-o"></i>
                     <div class=""><input type="number" name="dop_s_house" class="form-control numberinput form-control"
                                          placeholder="В соответствии ФЗ №76" style="border-radius: 5px;" required=""
                                          id="id_dop_s_house"></div>
                 </div>
             </div>
-            <a class="btn btn-primary mt-3 text-light" style="background: rgb(29, 33, 63); border-color:rgb(21, 24, 45); ">Расчитать</a>
+            <div id="itog" class="fs-4" style="width: 100%"></div>
+            <a class="btn btn-primary mt-3 text-light" id="submit" style="background: rgb(29, 33, 63); border-color:rgb(21, 24, 45); ">Расчитать</a>
         </div>
 
     </form>
 
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'build/js/resh.js' %}"></script>
 {% endblock %}

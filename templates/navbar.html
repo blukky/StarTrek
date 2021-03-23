@@ -1,9 +1,11 @@
 {% load static %}
-{#<style type="text/css">#}
-{#    #navbarNavAltMarkup a:hover {#}
-{#        color: #f7f7f7;#}
-{#    }#}
-{#</style>#}
+<style type="text/css">
+    #navbarNavAltMarkup a:hover {
+        transition: color 0.5s ease-in;
+        color: #FFF;
+
+    }
+</style>
 <nav class="navbar navbar-expand-lg fs-6 fixed-top" style="margin-left: 10%">
   <div class="container-fluid">
     <a class="navbar-brand" href="#" style="color: rgb(175, 199, 239)">
@@ -11,11 +13,11 @@
       StarTrek.Audition
     </a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" style="color: rgb(175, 199, 239)" aria-current="page" href="{% url 'home' %}">Главная</a>
-        <a class="nav-link" style="color: rgb(175, 199, 239)" href="{% url 'calc' %}">Калькулятор</a>
-        <a class="nav-link" style="color: rgb(175, 199, 239)" href="{% url 'regul' %}">Нормативная база</a>
-        <a class="nav-link" style="color: rgb(175, 199, 239)" href="#">О нас</a>
+      <div class="navbar-nav" style="color: #AFC7EF;">
+        <a class="nav-link"  aria-current="page" href="{% url 'home' %}">Главная</a>
+        <a class="nav-link"  href="{% url 'calc' %}">Калькулятор</a>
+        <a class="nav-link"  href="{% url 'regul' %}">Нормативная база</a>
+        <a class="nav-link"  href="{% url 'about' %}">О нас</a>
       </div>
     </div>
   </div>
