@@ -13,7 +13,12 @@ def index(request):
     news = list()
     title = page.find('div', class_='cell cell-list m-title')
     for i in title.find_all('a', class_='cell-list__item-link color-font-hover-only'):
-        news.append((i.get('title'),i.get('href')))
+        image = r.get(i.get('href')).content
+        image = bs(image, 'lxml')
+        print(image)
+        url = image.find('div', class_='media__size')
+        url = url.find('img')
+        news.append((i.get('title'),i.get('href'), url.get('src')))
     return render(request, 'base.html', {'news':news})
 
 def regul(request):

@@ -51,49 +51,56 @@
          style="width: 80%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;">
         <ul class="list-group list-group-flush">
             {% for item in news %}
-                <a class="list-group-item" href="{{ item.1 }}" style="border-bottom: 2px solid #C3C3C3">{{ item.0 }}</a>
+                <a class="list-group-item fs-5" href="{{ item.1 }}" style="border-bottom: 2px solid #C3C3C3;"><img
+                        src="{{ item.2 }}" width="100px" align="left" height="auto"
+                        alt="">{{ item.0 }}</a>
             {% endfor %}
         </ul>
     </div>
 
     <div class="gap-3 col-8 mx-auto text-dark d-flex mb-5" style="width: 100%;" align="center">
-    <div class="x_panel" style="width: 30%; margin-right: 5%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;">
-        <div class="x_title">
-            <h2 style="text-align: center; font-size: 18pt; color: #808080">Военнослужащие</h2>
-            <div class="clearfix"></div>
-        </div>
-        <div class="x_content">
-            <iframe class="chartjs-hidden-iframe"
-                    style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
-            <canvas id="myChart" height="336" width="672" style="width: 336px; height: 168px; font-size: 10pt"></canvas>
+        <div class="x_panel"
+             style="width: 30%; margin-right: 5%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;">
+            <div class="x_title">
+                <h2 style="text-align: center; font-size: 18pt; color: #808080">Военнослужащие</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <iframe class="chartjs-hidden-iframe"
+                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
+                <canvas id="myChart" height="336" width="672"
+                        style="width: 336px; height: 168px; font-size: 10pt"></canvas>
 
+            </div>
+        </div>
+        <div class="x_panel"
+             style="width: 30%; margin-right: 5%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;">
+            <div class="x_title">
+                <h2 style="text-align: center; font-size: 18pt; color: #808080">МВД</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <iframe class="chartjs-hidden-iframe"
+                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
+                <canvas id="myChart2" height="336" width="672"
+                        style="width: 336px; height: 168px; font-size: 10pt"></canvas>
+
+            </div>
+        </div>
+        <div class="x_panel" style="width: 30%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;">
+            <div class="x_title">
+                <h2 style="text-align: center; font-size: 18pt; color: #808080">Сотрудники</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <iframe class="chartjs-hidden-iframe"
+                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
+                <canvas id="myChart3" height="336" width="672"
+                        style="width: 336px; height: 168px; font-size: 10pt"></canvas>
+
+            </div>
         </div>
     </div>
-    <div class="x_panel" style="width: 30%; margin-right: 5%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;">
-        <div class="x_title">
-            <h2 style="text-align: center; font-size: 18pt; color: #808080">МВД</h2>
-            <div class="clearfix"></div>
-        </div>
-        <div class="x_content">
-            <iframe class="chartjs-hidden-iframe"
-                    style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
-            <canvas id="myChart2" height="336" width="672" style="width: 336px; height: 168px; font-size: 10pt"></canvas>
-
-        </div>
-    </div>
-    <div class="x_panel" style="width: 30%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;">
-        <div class="x_title">
-            <h2 style="text-align: center; font-size: 18pt; color: #808080">Сотрудники</h2>
-            <div class="clearfix"></div>
-        </div>
-        <div class="x_content">
-            <iframe class="chartjs-hidden-iframe"
-                    style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
-            <canvas id="myChart3" height="336" width="672" style="width: 336px; height: 168px; font-size: 10pt"></canvas>
-
-        </div>
-    </div>
-</div>
 
     <div class="container overflow-hidden" style="width: 80%;">
         <div class="row gx-5">
