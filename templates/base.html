@@ -29,6 +29,7 @@
           rel="stylesheet">
     <link href="{% static 'vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css' %}"
           rel="stylesheet">
+    {% block style %}{% endblock %}
     <!-- Custom Theme Style -->
     <link href="{% static 'build/css/custom.min.css' %}" rel="stylesheet">
     <meta charset="UTF-8">
@@ -46,75 +47,60 @@
     </div>
 
     <div align="center">
-    <div class="text-light fs-3" style="width: 80%;" align="left">Новости</div>
-    <div class="p-3 mb-5 bg-body rounded text-dark"
-         style="width: 80%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;">
-        <ul class="list-group list-group-flush">
-            {% for item in news %}
-                <a class="list-group-item fs-5" target="_blank" href="{{ item.1 }}" style="border-bottom: 2px solid #C3C3C3;"><img
-                        src="{{ item.2 }}" width="100px" align="left" height="auto"
-                        alt="">{{ item.0 }}</a>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <div class="gap-3 col-8 mx-auto text-dark d-flex mb-5" style="width: 100%;" align="center">
-        <div class="x_panel"
-             style="width: 30%; margin-right: 5%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;">
-            <div class="x_title">
-                <h2 style="text-align: center; font-size: 18pt; color: #808080">Военнослужащие</h2>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <iframe class="chartjs-hidden-iframe"
-                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
-                <canvas id="myChart" height="336" width="672"
-                        style="width: 336px; height: 168px; font-size: 10pt"></canvas>
-
-            </div>
+        <div class="text-light fs-3" id="news" style="width: 80%;" align="left">Новости</div>
+        <div class="p-3 mb-5 bg-body rounded text-dark"
+             style="width: 80%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;">
+            <ul class="list-group list-group-flush">
+                {% for item in news %}
+                    <a class="list-group-item fs-5" target="_blank" href="{{ item.1 }}"
+                       style="border-bottom: 2px solid #C3C3C3;"><img
+                            src="{{ item.2 }}" width="100px" align="left" height="auto"
+                            alt="">{{ item.0 }}</a>
+                {% endfor %}
+            </ul>
         </div>
-        <div class="x_panel"
-             style="width: 30%; margin-right: 5%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;">
-            <div class="x_title">
-                <h2 style="text-align: center; font-size: 18pt; color: #808080">МВД</h2>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <iframe class="chartjs-hidden-iframe"
-                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
-                <canvas id="myChart2" height="336" width="672"
-                        style="width: 336px; height: 168px; font-size: 10pt"></canvas>
+        <div align="center">
+            <div class="d-flex" style="flex-wrap: wrap; width: 80%">
+                <div class="text-dark d-block mb-5 bg-light rounded"
+                     style="width: 45%; margin-right: 10%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;" align="left">
+                    <div id="bar"
+                         style="width: 100%; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background-color: transparent;"
+                         _echarts_instance_="ec_1616697916249">
+                        <canvas id="chart-line"></canvas>
+                    </div>
+                </div>
 
-            </div>
-        </div>
-        <div class="x_panel" style="width: 30%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;">
-            <div class="x_title">
-                <h2 style="text-align: center; font-size: 18pt; color: #808080">Сотрудники</h2>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <iframe class="chartjs-hidden-iframe"
-                        style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
-                <canvas id="myChart3" height="336" width="672"
-                        style="width: 336px; height: 168px; font-size: 10pt"></canvas>
+                <div class="text-dark d-block mb-5 bg-light rounded"
+                     style="width: 45%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;" align="right">
+                    <div id="bar"
+                         style="width: 100%; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background-color: transparent;"
+                         _echarts_instance_="ec_1616697916249">
+                        <canvas id="chimick"></canvas>
+                    </div>
+                </div>
 
+                <div class="text-dark d-block mb-5 bg-light rounded "
+                     style="width: 45%; margin-right: 10%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;" align="left">
+                    <div id="bar"
+                         style="width: 100%; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background-color: transparent;"
+                         _echarts_instance_="ec_1616697916249">
+                        <canvas id="biolog"></canvas>
+                    </div>
+                </div>
+
+                <div class="text-dark d-block mb-5 bg-light rounded"
+                     style="width: 45%; box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important;" align="right">
+                    <div id="bar"
+                         style="width: 100%; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background-color: transparent;"
+                         _echarts_instance_="ec_1616697916249">
+                        <canvas id="virus"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container overflow-hidden" style="width: 80%;">
-        <div class="row gx-5">
-            <div class="col">
-                <div class="p-3 mb-5 bg-body rounded text-dark"
-                     style="box-shadow: 0 1rem 3rem 0 rgba(255,255,255,0.3)!important;">Графики
-                </div>
-            </div>
-            <div class="col">
-                <div class="p-3 mb-5 bg-body rounded text-dark"
-                     style="box-shadow: 0 1rem 3rem 0 rgba(255,255,255,0.3)!important;">Произвести расчет
-                </div>
-            </div>
-        </div>
+
     </div>
 
 {% endblock %}
@@ -156,10 +142,15 @@
 <script src="{% static 'vendors/nprogress/nprogress.js' %}"></script>
 <script src="{% static 'vendors/echarts/dist/echarts.min.js' %}"></script>
 <script src="{% static 'vendors/echarts/map/js/world.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <!-- Custom Theme Scripts -->
 <script src="{% static 'build/js/custom.min.js' %}"></script>
+
 {% block script %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="{% static 'build/js/base.js' %}"></script>
     <script src="{% static 'css/chart2.js' %}"></script>
+    <script src="{% static 'css/chart.js' %}"></script>
+    <script src="{% static 'css/chart_bio.js' %}"></script>
+    <script src="{% static 'css/chart_virus.js' %}"></script>
 {% endblock %}
 </html>

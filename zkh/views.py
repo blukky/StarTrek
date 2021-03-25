@@ -8,17 +8,19 @@ from .forms import Calc
 
 
 def index(request):
-    page = r.get('https://ria.ru/').content
+    page = r.get('https://rg.ru/tema/obshestvo/ekologija/').content
     page = bs(page, 'lxml')
     news = list()
-    title = page.find('div', class_='cell cell-list m-title')
-    for i in title.find_all('a', class_='cell-list__item-link color-font-hover-only'):
-        image = r.get(i.get('href')).content
+    title = page.find('div', class_='b-news-inner__list')
+    for i in title.find_all('a', class_='b-link b-link_title')[:5]:
+        image = r.get("https://rg.ru"+i.get('href')).content
         image = bs(image, 'lxml')
-        print(image)
-        url = image.find('div', class_='media__size')
-        url = url.find('img')
-        news.append((i.get('title'),i.get('href'), url.get('src')))
+        url = image.find('img', class_='b-material-img__img')
+        if url == None:
+            url = ""
+            news.append((i.text, "https://rg.ru"+i.get('href'), url))
+        else:
+            news.append((i.text, "https://rg.ru"+i.get('href'), url.get('src')))
     return render(request, 'base.html', {'news':news})
 
 def regul(request):
@@ -29,6 +31,9 @@ def calculater(request):
 
 def about(request):
     return render(request, 'about.html')
+
+def mapkart(request):
+    return render(request, 'map.html')
 
 
 def alg(request):

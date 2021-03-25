@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+{% endblock %}
+
+{% block title %}Карта водных ресурсов{% endblock %}
+
+{% block content %}
+    <script src="{% static 'build/js/cart.js' %}">
+    </script>
+    <div id="header" style="height: 300px; margin-top: 10%; margin-left: 10%;">
+        <div align="left" class="ml-5 text-light d-flex"><img src="{% static 'build/images/46909c7.png' %}" class="mr-3"
+                                                              alt="">
+            <h2>Карта водных ресурсов</h2>
+        </div>
+    </div>
+
+    <div align="center">
+        <div class="p-3 mb-5 bg-body rounded text-dark"
+             style="box-shadow: 0 1rem 3rem rgba(255,255,255,0.3)!important; width: 800px; height: 800px">
+            <div id="map" ></div>
+        </div>
+    </div>
+    <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApLOSq33NFZJnynCI6Nlrw_vfgT15Gl7M&callback=initMap&libraries=&v=weekly"
+            async
+    ></script>
+{% endblock %}
+
+{% block script %}
+{% endblock %}
